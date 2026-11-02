@@ -1,0 +1,10 @@
+; camtest.def : exports Alibre Design looks up by name.
+; Names must stay undecorated - check with: dumpbin /exports camtest.dll
+
+LIBRARY "camtest"
+
+EXPORTS
+    AddOnLoad
+    AddOnInvoke
+    AddOnUnload
+    GetAddOnInterface

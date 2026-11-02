@@ -1,0 +1,11 @@
+<AlibreDesignAddOn specificationVersion="2" friendlyName="CAM Test">
+   <Author name="Frank's Workshop" link="http://www.franksworkshop.com.au"/>
+   <DLL loadedWhen="Startup" location="camtest.dll"/>
+   <Copyright>Copyright (C) 2026 Frank's Workshop</Copyright>
+   <Icon location="camtest.ico"/>
+   <Menu text="CAM Test"/>
+   <Description>CAM Test add-on: adds a CAM Test ribbon tab with an About command.</Description>
+   <Workspace type="Always"/>
+   <Property name="Identifier" value="{BF109014-DB5A-4AB3-B2AE-F946F4A44067}"/>
+   <MenuFile loadedWhen="Startup"/>
+</AlibreDesignAddOn>
