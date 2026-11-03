@@ -4,6 +4,10 @@ A minimal integrated Alibre Design add-on. It registers with Alibre, gets its
 own **CAM Test** tab on the ribbon, and that tab has an **About** button that
 opens an About dialog.
 
+It also holds a proof of concept for the CAM add-on's riskiest Alibre API calls.
+See [POC_TEST.md](POC_TEST.md) for how to run it. The `Cam*` and `Poc*` files
+are that test code, and the log goes to `%LOCALAPPDATA%\camtest\poc.log`.
+
 ## Requirements
 
 - Visual Studio 2022 with:

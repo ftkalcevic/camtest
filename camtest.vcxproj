@@ -104,7 +104,13 @@
   <ItemGroup>
     <ClCompile Include="AboutDlg.cpp" />
     <ClCompile Include="AddOnInterface.cpp" />
+    <ClCompile Include="CamTabCommand.cpp" />
     <ClCompile Include="camtest.cpp" />
+    <ClCompile Include="CamViewCommand.cpp" />
+    <ClCompile Include="PocCommandBase.cpp" />
+    <ClCompile Include="PocEvents.cpp" />
+    <ClCompile Include="PocHelpers.cpp" />
+    <ClCompile Include="PocLog.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
@@ -112,7 +118,13 @@
   <ItemGroup>
     <ClInclude Include="AboutDlg.h" />
     <ClInclude Include="AddOnInterface.h" />
+    <ClInclude Include="CamTabCommand.h" />
     <ClInclude Include="camtest.h" />
+    <ClInclude Include="CamViewCommand.h" />
+    <ClInclude Include="PocCommandBase.h" />
+    <ClInclude Include="PocEvents.h" />
+    <ClInclude Include="PocHelpers.h" />
+    <ClInclude Include="PocLog.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -129,6 +141,7 @@
     <None Include="deploy\install.ps1" />
     <None Include="deploy\uninstall.ps1" />
     <None Include="README.md" />
+    <None Include="POC_TEST.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

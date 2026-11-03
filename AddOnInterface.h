@@ -3,16 +3,25 @@
 // Menu tree exposed to Alibre:
 //
 //   CAM Test            (root, id 100)  -> shown as a dedicated ribbon tab
+//     CAM Tab           (leaf, id 102)  -> two-way toggle: Design Explorer tab
+//     Show Toolpaths    (leaf, id 103)  -> regular command: fallback for the tab
 //     About             (leaf, id 101)  -> stateless command: shows About box
 //
-// Commands are "fire-and-forget": InvokeCommand does the work and returns a
-// NULL IAlibreAddOnCommand, so no command objects or lifetimes to manage.
+// About is "fire-and-forget": InvokeCommand does the work and returns a NULL
+// IAlibreAddOnCommand. The other two return command objects.
 
 #pragma once
 
+class CCamTabCommand;
+
 // Menu ids (any non-zero values unique within this add-on).
-const long MENU_ID_ROOT  = 100;
-const long MENU_ID_ABOUT = 101;
+const long MENU_ID_ROOT     = 100;
+const long MENU_ID_ABOUT    = 101;
+const long MENU_ID_CAM_TAB  = 102;
+const long MENU_ID_SHOW     = 103;
+
+// Oldest Alibre build this add-on is written against (27.0.1.27039).
+const long MINIMUM_ALIBRE_BUILD = 27039;
 
 class CAddOnInterface : public IAlibreAddOn
 {
@@ -55,9 +64,17 @@ public:
     STDMETHOD(MenuIcon)(long menuID, BSTR* pMenuIconPath) override;
     STDMETHOD(UseDedicatedRibbonTab)(VARIANT_BOOL* pFlag) override;
 
+    // CAM tabs, one per assembly workspace
+    void RemoveTabForSession(const std::wstring& sessionId);
+    void CloseAllTabs();
+
 private:
     void ShowAboutBox();
     static CString GetModuleFolder();
+    static bool IsAssemblySession(BSTR sessionIdentifier);
+    static bool IsAlibreVersionSupported();
+    static BSTR CopyTextForMenu(long menuID, bool toolTip);
 
     long m_nRefCount;
+    std::map<std::wstring, CCamTabCommand*> m_tabs;     // each entry holds a reference
 };
